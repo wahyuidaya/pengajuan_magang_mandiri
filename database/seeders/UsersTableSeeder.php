@@ -11,34 +11,40 @@ class UsersTableSeeder extends Seeder
 {
     public function run()
     {
-        $password = Hash::make('12345677');
-
         $users = [
             [
-                'username' => 'Mahasiswa',
-                'role' => 'mahasiswa',
+                'username' => 'mahasiswa',
+                'email'    => 'mahasiswa@gmail.com',
+                'password' => Hash::make('mahasiswa123'),
+                'role'     => 'mahasiswa',
             ],
             [
-                'username' => 'Mitra Perusahaan',
-                'role' => 'mitra_perusahaan',
+                'username' => 'stafprodi',
+                'email'    => 'stafprodi@gmail.com',
+                'password' => Hash::make('stafprodi123'),
+                'role'     => 'staf_prodi',
             ],
             [
-                'username' => 'Dosen Pembimbing',
-                'role' => 'dosen_pembimbing',
+                'username' => 'dosen',
+                'email'    => 'dosen@gmail.com',
+                'password' => Hash::make('dosen123'),
+                'role'     => 'dosen_pembimbing',
             ],
             [
-                'username' => 'Staf Prodi',
-                'role' => 'staf_prodi',
+                'username' => 'mitra',
+                'email'    => 'mitra@gmail.com',
+                'password' => Hash::make('mitra123'),
+                'role'     => 'mitra_perusahaan',
             ],
         ];
 
         foreach ($users as $data) {
-            User::firstOrCreate(
-                ['username' => $data['username']],
+            User::updateOrCreate(
+                ['role' => $data['role']],
                 [
-                    'id_user' => Str::uuid(),
-                    'password_hash' => $password,
-                    'role' => $data['role'],
+                    'username'      => $data['username'],
+                    'email'         => $data['email'],
+                    'password_hash' => $data['password'],
                 ]
             );
         }
