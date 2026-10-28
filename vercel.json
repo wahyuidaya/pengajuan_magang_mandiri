@@ -22,7 +22,15 @@
       "dest": "/build/$1"
     },
     {
-      "src": "/(favicon\\.ico|robots\\.txt)",
+      "src": "/storage/gambar/(.*)",
+      "dest": "/gambar/$1"
+    },
+    {
+      "src": "/gambar/(.*)",
+      "dest": "/gambar/$1"
+    },
+    {
+      "src": "/(.*\\.(?:css|js|png|jpg|jpeg|gif|svg|ico|webp|avif|woff|woff2|ttf|txt))$",
       "dest": "/$1"
     },
     {

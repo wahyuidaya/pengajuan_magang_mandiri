@@ -81,7 +81,7 @@
     <main>
         <section id="beranda" class="relative overflow-hidden" style="height: 90vh;">
             <div class="absolute inset-0 bg-cover bg-center"
-                style="background-image: url('{{ asset('storage/gambar/background.png') }}'); background-position: right top;">
+                style="background-image: url('{{ asset('gambar/background.png') }}'); background-position: right top;">
                 <div class="absolute inset-0 bg-black opacity-10"></div>
             </div>
             <div class="container mx-auto px-10 flex items-center h-full relative z-10">
