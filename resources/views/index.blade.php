@@ -45,7 +45,8 @@
 </head>
 
 <body class="bg-white font-sans text-gray-800">
-    <header class="sticky top-0 z-50 shadow-md bg-white">
+    @include('partials.demo_top_bar')
+    <header class="sticky top-0 z-40 shadow-md bg-white">
         <nav class="w-full">
             <div class="container mx-auto px-10 py-3.5 flex justify-between items-center">
                 <div class="flex items-center space-x-2">
@@ -60,8 +61,11 @@
                         </span>
                     </div>
                 </div>
-                <div class="hidden md:flex items-center space-x-10 text-base text-gray-700 font-medium">
+                <div class="hidden md:flex items-center space-x-8 text-base text-gray-700 font-medium">
                     <a href="#beranda" class="nav-link transition duration-150">Beranda</a>
+                    <a href="#demo-portal" class="text-purple-700 font-bold hover:text-purple-900 transition inline-flex items-center gap-1.5 bg-purple-50 px-3 py-1 rounded-full border border-purple-200">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Coba Demo Portal
+                    </a>
                     <a href="#perusahaan" class="nav-link transition duration-150">Perusahaan</a>
                     <a href="#informasi" class="nav-link transition duration-150">Informasi</a>
                 </div>
@@ -94,15 +98,144 @@
                         transparan dan efisien.
                     </p>
                     <div class="flex space-x-5">
-                        <a href="{{ route('login') }}"
-                            class="bg-ug-primary text-white text-lg py-3.5 px-8 rounded-md font-semibold transition duration-200 hover:shadow-xl">
-                            Ajukan Sekarang
+                        <a href="#demo-portal"
+                            class="bg-purple-700 hover:bg-purple-800 text-white text-lg py-3.5 px-8 rounded-md font-semibold transition duration-200 shadow-xl inline-flex items-center gap-2">
+                            <span>⚡</span> Coba Live Demo
                         </a>
-                        <a href="#informasi"
+                        <a href="{{ route('login') }}"
                             class="bg-white text-ug-primary text-lg py-3.5 px-8 rounded-md font-semibold border border-white transition duration-200 hover:bg-gray-100">
-                            Pelajari Lebih Lanjut
+                            Masuk ke Sistem
                         </a>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LIVE DEMO PORTAL SECTION - PORTOFOLIO WAHYU IDAYA -->
+        <section id="demo-portal" class="py-16 bg-gradient-to-b from-purple-50/70 via-white to-gray-50 border-y border-purple-200">
+            <div class="container mx-auto px-6 md:px-10">
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-bold bg-purple-100 text-purple-900 border border-purple-200 mb-3 tracking-wide">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        LIVE DEMO EXPLORER &bull; PORTOFOLIO WAHYU IDAYA
+                    </span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight mb-3">
+                        Uji Coba Sistem Pengajuan Magang Mandiri
+                    </h2>
+                    <p class="text-gray-600 text-sm md:text-base leading-relaxed">
+                        Sistem ini dikembangkan secara tim (SDLC) di mana saya berperan sebagai <strong>Programmer Backend & Integrasi Sistem</strong>. Pilih salah satu portal di bawah ini untuk langsung mencoba alur kerja sesuai perannya:
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- 1. Mahasiswa -->
+                    <div class="bg-white rounded-2xl border-2 border-purple-100 hover:border-purple-400 p-6 flex flex-col justify-between shadow-sm hover:shadow-xl transition-all duration-200 group">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+                                🎓
+                            </div>
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-purple-600 bg-purple-50 px-2 py-0.5 rounded">Peran 01</span>
+                            <h3 class="text-lg font-bold text-gray-900 mt-2 mb-2">Portal Mahasiswa</h3>
+                            <p class="text-gray-600 text-xs leading-relaxed mb-4">
+                                Ajukan magang mandiri, upload berkas KRS (ekstraksi data otomatis via PDFParser), dan pantau progres bimbingan.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-gray-100">
+                            <div class="bg-purple-50/70 rounded-lg p-2.5 mb-3 text-[11px] text-gray-700 border border-purple-100">
+                                <div>Email: <strong class="text-purple-900 font-mono">mahasiswa@gmail.com</strong></div>
+                                <div>Sandi: <strong class="text-purple-900 font-mono">mahasiswa123</strong></div>
+                            </div>
+                            <a href="{{ route('login') }}?role=mahasiswa"
+                               class="w-full inline-flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl text-xs font-bold text-white bg-purple-700 hover:bg-purple-800 transition shadow-sm">
+                                Coba Masuk Mahasiswa →
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 2. Staf Prodi -->
+                    <div class="bg-white rounded-2xl border-2 border-purple-100 hover:border-purple-400 p-6 flex flex-col justify-between shadow-sm hover:shadow-xl transition-all duration-200 group">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+                                🏛️
+                            </div>
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded">Peran 02</span>
+                            <h3 class="text-lg font-bold text-gray-900 mt-2 mb-2">Portal Staf Prodi</h3>
+                            <p class="text-gray-600 text-xs leading-relaxed mb-4">
+                                Verifikasi berkas kelayakan magang, lakukan ploting dosen pembimbing, dan cetak surat pengantar otomatis via DomPDF.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-gray-100">
+                            <div class="bg-indigo-50/70 rounded-lg p-2.5 mb-3 text-[11px] text-gray-700 border border-indigo-100">
+                                <div>Email: <strong class="text-indigo-900 font-mono">stafprodi@gmail.com</strong></div>
+                                <div>Sandi: <strong class="text-indigo-900 font-mono">stafprodi123</strong></div>
+                            </div>
+                            <a href="{{ route('login') }}?role=staf_prodi"
+                               class="w-full inline-flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl text-xs font-bold text-white bg-indigo-700 hover:bg-indigo-800 transition shadow-sm">
+                                Coba Masuk Staf Prodi →
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 3. Dosen Pembimbing -->
+                    <div class="bg-white rounded-2xl border-2 border-purple-100 hover:border-purple-400 p-6 flex flex-col justify-between shadow-sm hover:shadow-xl transition-all duration-200 group">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+                                👨‍🏫
+                            </div>
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-2 py-0.5 rounded">Peran 03</span>
+                            <h3 class="text-lg font-bold text-gray-900 mt-2 mb-2">Dosen Pembimbing</h3>
+                            <p class="text-gray-600 text-xs leading-relaxed mb-4">
+                                Monitoring daftar mahasiswa bimbingan, review laporan logbook mingguan, dan evaluasi hasil magang mahasiswa.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-gray-100">
+                            <div class="bg-blue-50/70 rounded-lg p-2.5 mb-3 text-[11px] text-gray-700 border border-blue-100">
+                                <div>Email: <strong class="text-blue-900 font-mono">dosen@gmail.com</strong></div>
+                                <div>Sandi: <strong class="text-blue-900 font-mono">dosen123</strong></div>
+                            </div>
+                            <a href="{{ route('login') }}?role=dosen_pembimbing"
+                               class="w-full inline-flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl text-xs font-bold text-white bg-blue-700 hover:bg-blue-800 transition shadow-sm">
+                                Coba Masuk Dosen →
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 4. Mitra Perusahaan -->
+                    <div class="bg-white rounded-2xl border-2 border-purple-100 hover:border-purple-400 p-6 flex flex-col justify-between shadow-sm hover:shadow-xl transition-all duration-200 group">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-teal-100 text-teal-700 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform">
+                                🏢
+                            </div>
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-teal-600 bg-teal-50 px-2 py-0.5 rounded">Peran 04</span>
+                            <h3 class="text-lg font-bold text-gray-900 mt-2 mb-2">Mitra Perusahaan</h3>
+                            <p class="text-gray-600 text-xs leading-relaxed mb-4">
+                                Manajemen mahasiswa magang yang diterima di perusahaan, upload silabus kerja, dan submit penilaian industri.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-gray-100">
+                            <div class="bg-teal-50/70 rounded-lg p-2.5 mb-3 text-[11px] text-gray-700 border border-teal-100">
+                                <div>Email: <strong class="text-teal-900 font-mono">mitra@gmail.com</strong></div>
+                                <div>Sandi: <strong class="text-teal-900 font-mono">mitra123</strong></div>
+                            </div>
+                            <a href="{{ route('login') }}?role=mitra_perusahaan"
+                               class="w-full inline-flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl text-xs font-bold text-white bg-teal-700 hover:bg-teal-800 transition shadow-sm">
+                                Coba Masuk Mitra →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-12 text-center flex flex-wrap items-center justify-center gap-4">
+                    <a href="https://wahyuidaya.github.io" target="_blank" rel="noopener noreferrer" 
+                       class="inline-flex items-center gap-2 px-5 py-2.5 bg-white border border-purple-300 text-purple-900 rounded-xl text-sm font-bold hover:bg-purple-50 transition shadow-sm">
+                        <svg class="w-4 h-4 text-purple-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                        ← Kembali ke Portofolio Utama Wahyu Idaya
+                    </a>
+                    <a href="https://github.com/wahyuidaya/pengajuan_magang_mandiri" target="_blank" rel="noopener noreferrer" 
+                       class="inline-flex items-center gap-2 px-5 py-2.5 bg-gray-900 text-white rounded-xl text-sm font-semibold hover:bg-gray-800 transition shadow-sm">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                        Lihat Kode di GitHub
+                    </a>
                 </div>
             </div>
         </section>
@@ -224,10 +357,23 @@
 </section>
     </main>
 
-    <footer class="bg-ug-primary py-6">
+    <footer class="bg-gray-950 text-white py-12 border-t border-purple-900/40">
         <div class="container mx-auto px-10 text-center">
-            <p class="text-white text-sm">
-                © 2025 Universitas Gunadarma - Sistem Pengajuan Magang Mandiri
+            <div class="flex flex-wrap justify-center items-center gap-6 text-xs text-gray-300 mb-6">
+                <a href="https://wahyuidaya.github.io" target="_blank" rel="noopener noreferrer" class="hover:text-purple-300 font-bold transition inline-flex items-center gap-1.5 bg-purple-900/50 border border-purple-500/40 px-3.5 py-1.5 rounded-full text-white shadow-sm">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                    Kembali ke Portofolio Wahyu Idaya
+                </a>
+                <a href="https://github.com/wahyuidaya/pengajuan_magang_mandiri" target="_blank" rel="noopener noreferrer" class="hover:text-purple-300 transition inline-flex items-center gap-1">
+                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                    GitHub Repository
+                </a>
+                <a href="{{ route('login') }}" class="hover:text-purple-300 transition">
+                    Halaman Login Demo
+                </a>
+            </div>
+            <p class="text-xs text-gray-400">
+                &copy; 2026 <strong>Wahyu Idaya</strong> &bull; Sistem Pengajuan Magang Mandiri Universitas Gunadarma &bull; Live Demo Portfolio
             </p>
         </div>
     </footer>
