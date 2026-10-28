@@ -17,5 +17,13 @@ foreach ($tmpDirs as $dir) {
     }
 }
 
+putenv('APP_DEBUG=true');
+$_ENV['APP_DEBUG'] = 'true';
+$_SERVER['APP_DEBUG'] = 'true';
+
+putenv('LOG_CHANNEL=stderr');
+$_ENV['LOG_CHANNEL'] = 'stderr';
+$_SERVER['LOG_CHANNEL'] = 'stderr';
+
 // Forward ke entrypoint asli Laravel
 require __DIR__ . '/../public/index.php';
