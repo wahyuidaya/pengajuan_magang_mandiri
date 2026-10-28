@@ -1,27 +1,23 @@
 <?php
 
-namespace App\Models;
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Faq extends Model
+return new class extends Migration
 {
-    protected $table = 'faq';
-    protected $primaryKey = 'id_faq';
-    public $incrementing = false;
-    protected $keyType = 'string';
-    public $timestamps = false;
-    
-    protected $fillable = [
-        'id_faq',
-        'pertanyaan',
-        'jawaban',
-        'urutan',
-    ];
-
-    // Scope untuk order by urutan
-    public function scopeOrdered($query)
+    public function up(): void
     {
-        return $query->orderBy('urutan', 'asc')->orderBy('id_faq', 'asc');
+        Schema::create('faq', function (Blueprint $table) {
+            $table->char('id_faq', 36)->primary();
+            $table->text('pertanyaan');
+            $table->text('jawaban');
+            $table->integer('urutan')->default(0);
+        });
     }
-}
+
+    public function down(): void
+    {
+        Schema::dropIfExists('faq');
+    }
+};
