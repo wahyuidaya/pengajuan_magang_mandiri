@@ -12,7 +12,6 @@
 <body class="font-sans flex bg-gray-50">
     @include('partials.sidebar_mahasiswa', ['activeMenu' => $activeMenu ?? 'dashboard'])
     <main class="ml-64 px-10 py-6 w-full">
-        @include('partials.dashboard_demo_bar')
         @yield('content')
     </main>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

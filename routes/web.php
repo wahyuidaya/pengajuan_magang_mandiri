@@ -46,16 +46,14 @@ use App\Http\Controllers\StafProdi\StafManagementController;
 // HALAMAN UTAMA
 // ===========================
 Route::get('/', function () {
-    // Ambil 8 perusahaan yang sudah disetujui
-    $companies = MitraPerusahaan::aktif()
-        ->take(8)
-        ->get();
-
-    // Ambil semua FAQ yang sudah diurutkan
-    $faqs = Faq::ordered()->get();
-
-    return view('index', compact('companies', 'faqs'));
+    return view('portal');
 });
+
+Route::get('/informasi-kampus', function () {
+    $companies = MitraPerusahaan::aktif()->take(8)->get();
+    $faqs = Faq::ordered()->get();
+    return view('beranda_kampus', compact('companies', 'faqs'));
+})->name('kampus.beranda');
 
 // Halaman semua perusahaan
 Route::get('/perusahaan', function () {
