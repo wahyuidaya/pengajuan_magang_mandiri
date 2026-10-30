@@ -9,16 +9,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
-<body class="font-sans flex bg-gray-50">
+<body class="font-sans flex flex-col md:flex-row bg-gray-50 min-h-screen">
 
-    {{-- Hamburger Button (mobile only) --}}
-    <button class="hamburger-btn" id="hamburger-btn" onclick="toggleSidebar('sidebar-mitra')" aria-label="Buka Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
+    {{-- Mobile Topbar (Coffeebox style: hamburger di dalam bar rapih) --}}
+    <header class="mobile-topbar">
+        <div class="topbar-left">
+            <button type="button" class="mobile-menu-toggle" onclick="toggleSidebar('sidebar-mitra')" aria-label="Buka Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="flex items-center gap-2">
+                <span class="bg-white text-[#690dac] text-xs font-black px-1.5 py-0.5 rounded shadow-sm">UG</span>
+                <span class="text-white text-sm font-semibold tracking-wide">Dashboard Mitra</span>
+            </div>
+        </div>
+        <div class="text-xs text-purple-200 opacity-80 hidden sm:block">
+            Gunadarma
+        </div>
+    </header>
 
-    {{-- Overlay gelap saat sidebar terbuka di mobile --}}
+    {{-- Overlay gelap saat sidebar drawer terbuka di mobile --}}
     <div class="sidebar-overlay" id="sidebar-overlay" onclick="closeSidebar('sidebar-mitra')"></div>
 
     @include('partials.sidebar_mitra-perusahaan', ['activeMenu' => $activeMenu ?? 'dashboard'])
@@ -30,34 +41,39 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
-        /* ---- Hamburger Sidebar Toggle ---- */
+        /* ---- Hamburger Sidebar Toggle (Drawer) ---- */
         function toggleSidebar(sidebarId) {
             const sidebar = document.getElementById(sidebarId);
             const overlay = document.getElementById('sidebar-overlay');
-            sidebar.classList.toggle('sidebar-open');
-            overlay.classList.toggle('show');
+            if (sidebar && overlay) {
+                sidebar.classList.toggle('sidebar-open');
+                overlay.classList.toggle('show');
+            }
         }
 
         function closeSidebar(sidebarId) {
             const sidebar = document.getElementById(sidebarId);
             const overlay = document.getElementById('sidebar-overlay');
-            sidebar.classList.remove('sidebar-open');
-            overlay.classList.remove('show');
+            if (sidebar && overlay) {
+                sidebar.classList.remove('sidebar-open');
+                overlay.classList.remove('show');
+            }
         }
 
         document.addEventListener("DOMContentLoaded", function () {
             const sidebar = document.getElementById('sidebar-mitra');
 
-            if (sidebar) {
-                const savedScroll = localStorage.getItem('mitra-sidebar-scroll');
-                if (savedScroll) {
-                    sidebar.scrollTop = savedScroll;
-                }
+            // Scroll restore
+            const savedScroll = localStorage.getItem('mitra-sidebar-scroll');
+            if (savedScroll && sidebar) {
+                sidebar.scrollTop = savedScroll;
+            }
 
+            if (sidebar) {
                 sidebar.addEventListener('click', function (e) {
                     if (e.target.closest('a') || e.target.closest('button')) {
                         localStorage.setItem('mitra-sidebar-scroll', sidebar.scrollTop);
-                        if (window.innerWidth < 768) {
+                        if (window.innerWidth <= 768) {
                             closeSidebar('sidebar-mitra');
                         }
                     }
