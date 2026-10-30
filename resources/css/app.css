@@ -11,7 +11,17 @@
 }
 
 /* ================================================================
-   DASHBOARD MOBILE & RESPONSIVE (Coffeebox_Jkt Pattern)
+   TURBO PROGRESS BAR (Indikator loading halus di atas topbar)
+   ================================================================ */
+.turbo-progress-bar {
+    height: 3px;
+    background: #e8c878; /* Gold halus khas Coffeebox */
+    box-shadow: 0 0 10px rgba(232, 200, 120, 0.7);
+    z-index: 9999;
+}
+
+/* ================================================================
+   DASHBOARD MOBILE & RESPONSIVE (Coffeebox Pattern)
    ================================================================ */
 
 /* Topbar Mobile */
@@ -36,7 +46,7 @@
     gap: 12px;
 }
 
-/* Tombol Menu Hamburger di dalam Topbar (seperti kasir.css coffeebox) */
+/* Tombol Menu Hamburger */
 .mobile-menu-toggle {
     display: flex;
     flex-direction: column;
@@ -58,7 +68,7 @@
     border-radius: 2px;
 }
 
-/* Overlay Sidebar Drawer (Tanpa blur, persis coffeebox: background: rgba(0,0,0,.5)) */
+/* Overlay Sidebar Drawer */
 .sidebar-overlay {
     display: none;
     position: fixed;
@@ -76,7 +86,7 @@
         display: flex;
     }
 
-    /* Sidebar drawer berada persis di bawah topbar (seperti coffeebox top: 64px, tanpa menutupi topbar) */
+    /* Sidebar drawer persis di bawah topbar dengan transisi smooth */
     aside[id^="sidebar-"] {
         position: fixed !important;
         top: 60px !important;
@@ -85,7 +95,7 @@
         height: calc(100dvh - 60px) !important;
         z-index: 150 !important;
         transform: translateX(-100%);
-        transition: transform 0.2s ease;
+        transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1);
         box-shadow: 4px 0 18px rgba(0, 0, 0, 0.25);
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;

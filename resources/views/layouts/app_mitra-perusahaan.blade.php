@@ -60,16 +60,25 @@
             }
         }
 
-        /* Saat klik link di sidebar pada mobile: tutup drawer perlahan */
-        document.addEventListener('click', function(e) {
-            const link = e.target.closest('aside[id^="sidebar-"] a');
-            if (link && window.innerWidth <= 768) {
-                const aside = link.closest('aside');
-                if (aside) {
-                    closeSidebar(aside.id);
+        /* Seketika saat link sidebar disentuh / diklik di mobile: tutup drawer langsung tanpa delay */
+        function attachInstantClose() {
+            document.querySelectorAll('aside[id^="sidebar-"] a').forEach(function(link) {
+                if (link.dataset.hasCloseHandler) return;
+                link.dataset.hasCloseHandler = 'true';
+
+                function handleInstantClose() {
+                    if (window.innerWidth <= 768) {
+                        const aside = link.closest('aside');
+                        if (aside) closeSidebar(aside.id);
+                    }
                 }
-            }
-        });
+                link.addEventListener('touchstart', handleInstantClose, { passive: true });
+                link.addEventListener('click', handleInstantClose);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', attachInstantClose);
+        document.addEventListener('turbo:load', attachInstantClose);
 
         /* ---- Logout Confirm ---- */
         function handleLogout() {
