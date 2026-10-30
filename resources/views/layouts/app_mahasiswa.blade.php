@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $title ?? 'Dashboard Mahasiswa' }}</title>
-    @vite('resources/css/app.css')
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
@@ -59,6 +59,17 @@
                 overlay.classList.remove('show');
             }
         }
+
+        /* Saat klik link di sidebar pada mobile: tutup drawer perlahan */
+        document.addEventListener('click', function(e) {
+            const link = e.target.closest('aside[id^="sidebar-"] a');
+            if (link && window.innerWidth <= 768) {
+                const aside = link.closest('aside');
+                if (aside) {
+                    closeSidebar(aside.id);
+                }
+            }
+        });
 
         /* ---- Logout Confirm ---- */
         function handleLogout() {
