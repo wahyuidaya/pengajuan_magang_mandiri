@@ -42,7 +42,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
-        /* ---- Hamburger Sidebar Toggle (Drawer) ---- */
+        /* ---- Hamburger Sidebar Toggle (Drawer Coffeebox Style) ---- */
         function toggleSidebar(sidebarId) {
             const sidebar = document.getElementById(sidebarId);
             const overlay = document.getElementById('sidebar-overlay');
@@ -60,27 +60,6 @@
                 overlay.classList.remove('show');
             }
         }
-
-        document.addEventListener("DOMContentLoaded", function () {
-            const sidebar = document.getElementById('sidebar-prodi');
-
-            // Scroll restore
-            const savedScroll = localStorage.getItem('prodi-sidebar-scroll');
-            if (savedScroll && sidebar) {
-                sidebar.scrollTop = savedScroll;
-            }
-
-            if (sidebar) {
-                sidebar.addEventListener('click', function (e) {
-                    if (e.target.closest('a') || e.target.closest('button')) {
-                        localStorage.setItem('prodi-sidebar-scroll', sidebar.scrollTop);
-                        if (window.innerWidth <= 768) {
-                            closeSidebar('sidebar-prodi');
-                        }
-                    }
-                });
-            }
-        });
 
         /* ---- Logout Confirm ---- */
         function handleLogout() {
