@@ -144,7 +144,7 @@
             </form>
 
             <div class="mt-4 pt-4 border-t border-gray-100 text-center">
-                <a href="/" class="text-xs text-ug-primary hover:underline font-medium">
+                <a href="{{ route('portal') }}" class="text-xs text-ug-primary hover:underline font-medium">
                     ← Kembali ke Portal Awal
                 </a>
             </div>

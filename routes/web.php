@@ -46,8 +46,14 @@ use App\Http\Controllers\StafProdi\StafManagementController;
 // HALAMAN UTAMA
 // ===========================
 Route::get('/', function () {
+    $companies = MitraPerusahaan::aktif()->take(8)->get();
+    $faqs = Faq::ordered()->get();
+    return view('beranda_kampus', compact('companies', 'faqs'));
+})->name('beranda');
+
+Route::get('/portal', function () {
     return view('portal');
-});
+})->name('portal');
 
 Route::get('/informasi-kampus', function () {
     $companies = MitraPerusahaan::aktif()->take(8)->get();
