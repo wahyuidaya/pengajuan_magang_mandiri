@@ -7,6 +7,24 @@
     <title>{{ $title ?? 'Dashboard Mitra Perusahaan' }}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Mobile Responsive Table Horizontal Scroll */
+@media (max-width: 900px) {
+  .table-responsive, .table-wrap, .table-container {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    max-width: 100%;
+  }
+  table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+  }
+}
+</style>
 </head>
 
 <body class="font-sans flex flex-col md:flex-row bg-gray-50 min-h-screen">

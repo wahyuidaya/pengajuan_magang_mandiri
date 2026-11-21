@@ -7,6 +7,24 @@
     <title>{{ $title ?? 'Dashboard Mahasiswa' }}</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+/* Mobile Responsive Table Horizontal Scroll */
+@media (max-width: 900px) {
+  .table-responsive, .table-wrap, .table-container {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    max-width: 100%;
+  }
+  table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+  }
+}
+</style>
 </head>
 
 <body class="font-sans flex flex-col md:flex-row bg-gray-50 min-h-screen">
