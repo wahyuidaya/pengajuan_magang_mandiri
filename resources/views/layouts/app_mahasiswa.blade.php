@@ -9,6 +9,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
 /* Mobile Responsive Table Horizontal Scroll */
+.table-scroll-wrap {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch;
+  display: block;
+}
 @media (max-width: 900px) {
   html, body {
     overflow-x: hidden !important;
@@ -25,12 +32,9 @@
     max-width: 100% !important;
     display: block;
   }
-  table {
-    display: block !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    overflow-x: auto !important;
-    -webkit-overflow-scrolling: touch;
+  .table-scroll-wrap table {
+    width: 100%;
+    min-width: max-content;
     white-space: nowrap;
   }
   .sidebar, aside, nav.sidebar {
@@ -144,6 +148,18 @@
             })
         }
     </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('table').forEach(function(t) {
+    if (!t.parentElement || t.parentElement.classList.contains('table-scroll-wrap')) return;
+    var w = document.createElement('div');
+    w.className = 'table-scroll-wrap';
+    t.parentNode.insertBefore(w, t);
+    w.appendChild(t);
+  });
+});
+</script>
 </body>
 
 </html>
