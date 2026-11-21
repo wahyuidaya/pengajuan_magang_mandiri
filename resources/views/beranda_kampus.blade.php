@@ -213,7 +213,7 @@
             <h3 class="text-xl font-bold text-gray-900 mb-3">Masih Memiliki Pertanyaan?</h3>
             <p class="text-gray-600 mb-6">Jika memerlukan informasi lebih lanjut atau bantuan teknis lainnya, silakan hubungi layanan konsultasi Staf Prodi melalui tautan di bawah ini.</p>
             
-            <a href="https://wa.me/6282127453186?text=Yth.%20Staf%20Prodi,%20perkenalkan%20saya%20(Sebutkan%20Nama/NPM).%20Saya%20ingin%20berkonsultasi%20mengenai%20prosedur%20pengajuan%20magang." 
+            <a href="https://wa.me/6287737658258?text=Yth.%20Staf%20Prodi,%20perkenalkan%20saya%20(Sebutkan%20Nama/NPM).%20Saya%20ingin%20berkonsultasi%20mengenai%20prosedur%20pengajuan%20magang." 
                target="_blank"
                class="inline-flex items-center justify-center px-8 py-3 bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-md">
                 <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
